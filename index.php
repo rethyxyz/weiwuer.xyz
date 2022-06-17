@@ -1,11 +1,13 @@
 <?php
 /* weiwuer.xyz (C) 2022 */
-$Title = "weiwuer.xyz";
+$MetadataTitle = "weiwuer.xyz";
+$MetadataDescription = "A tiny PHP blog. No database, simple in design, varied topics.";
 ?>
 
 <html>
 <head>
-<title><?php echo($Title); ?></title>
+<title><?php echo($MetadataTitle); ?></title>
+<meta name="description" content="<?php echo($MetadataDescription); ?>">
 <style>
     section,section2,section3 {
         outline: 1px solid grey;
@@ -42,7 +44,7 @@ $Title = "weiwuer.xyz";
 </head>
 
 <body>
-<h1><?php echo($Title); ?></h1>
+<h1><?php echo($MetadataTitle); ?></h1>
 <a href="Files/Soldiers_from_Karasahr,_8th_century.jpg"><img src="Files/Soldiers_from_Karasahr,_8th_century.jpg" width=300px></a>
 <hr>
 
