@@ -1,6 +1,6 @@
 <?php
 /* weiwuer.xyz (C) 2022 */
-$MetadataTitle = "weiwuer.xyz";
+$MetadataTitle = "https://weiwuer.xyz";
 $MetadataDescription = "A tiny PHP blog. No database, simple in design, varied topics.";
 ?>
 
@@ -10,16 +10,26 @@ $MetadataDescription = "A tiny PHP blog. No database, simple in design, varied t
 <meta name="description" content="<?php echo($MetadataDescription); ?>">
 <style>
     section,section2,section3 {
-        outline: 1px solid grey;
         display: inline-block;
-        padding: 10px;
-        margin: 10px;
         max-width: 500px;
+        outline: 1px solid grey;
+        margin: 10px;
+        padding: 10px;
     }
 
+	.Title:hover:after {
+		content: " 🧠";
+		font-size: 24px;
+	}
+
+    .ArticleLink::before {
+		content: "🔗";
+		font-size: 12px;
+	}
     section {
         border-right: black 2px solid;
         border-bottom: black 2px solid;
+		background: beige;
 		width: inherit;
     }
     section2 {
@@ -30,7 +40,7 @@ $MetadataDescription = "A tiny PHP blog. No database, simple in design, varied t
 		width: inherit;
     }
     section3 {
-		font-family: tahoma;
+		font-family: "Tahoma";
 		background: lightgrey;
         border-right: lightgrey 3px solid;
         border-bottom: lightgrey 2px solid;
@@ -44,8 +54,9 @@ $MetadataDescription = "A tiny PHP blog. No database, simple in design, varied t
 </head>
 
 <body>
-<h1><?php echo($MetadataTitle); ?></h1>
-<a href="Files/Soldiers_from_Karasahr,_8th_century.jpg"><img src="Files/Soldiers_from_Karasahr,_8th_century.jpg" width=300px></a>
+<?php include "PHPModules/Menu.php"; ?>
+
+<h1 class=Title><i><?php echo($MetadataTitle); ?></i></h1>
 <hr>
 
 <?php 
@@ -62,7 +73,7 @@ foreach($Articles as &$Article) {
     }
 
     echo "<$SectionTag>\n";
-    echo "<a href=\"$Article\">$Article</a>\n";
+    echo "<a class=ArticleLink href=\"$Article\">$Article</a>\n";
     include "$Article";
     echo "</$SectionTag>\n";
 }
